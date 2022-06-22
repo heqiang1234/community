@@ -15,26 +15,11 @@ import javax.annotation.PreDestroy;
  * @date 2022-06-20 23:35:48
  */
 @Service
-public class AlphaService {
+public interface AlphaService {
 
-    @Autowired
-    private AlphaDao alphaDao;
+    public void init();
 
-    public AlphaService(){
-        System.out.println("实例化AlphaService");
-    }
+    public void destory();
 
-    @PostConstruct
-    public void init(){
-        System.out.println("初始化AlphaService");
-    }
-
-    @PreDestroy
-    public void destory(){
-        System.out.println("销毁AlphaService");
-    }
-
-    public String getDao(){
-        return alphaDao.select();
-    }
+    public String getDao();
 }
